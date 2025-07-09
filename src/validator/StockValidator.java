@@ -3,7 +3,7 @@ package validator;
 import book.Book;
 import book.PaperBook;
 
-public class StockValidtor implements Validator {
+public class StockValidator implements Validator {
 
     @Override
     public void validate(Book book) {
@@ -11,6 +11,7 @@ public class StockValidtor implements Validator {
             if (paperBook.getStock() <= 0) {
                 throw new IllegalArgumentException("Book is out of stock");
             }
+            paperBook.setStock(paperBook.getStock() - 1);
         }
     }
 }

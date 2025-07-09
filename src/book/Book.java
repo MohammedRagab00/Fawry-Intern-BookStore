@@ -1,6 +1,7 @@
 package book;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public abstract class Book {
 
@@ -43,7 +44,10 @@ public abstract class Book {
         this.title = title;
     }
 
-    public void setYear(LocalDate year) {
+    public final void setYear(LocalDate year) {
+        if (year.isBefore(LocalDate.now().minusYears(5))) {
+            throw new IllegalArgumentException("year cannot be before 5 years from now");
+        }
         this.year = year;
     }
 
@@ -54,4 +58,14 @@ public abstract class Book {
         this.price = price;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Book book)) return false;
+        return Objects.equals(ISBN, book.ISBN);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(ISBN);
+    }
 }

@@ -24,4 +24,10 @@ public class PaperBook extends Book implements Paper {
         this.stock = stock;
     }
 
+    @Override
+    public String toString() {
+        return "PaperBook{" +
+                "stock=" + stock +
+                '}';
+    }
 }

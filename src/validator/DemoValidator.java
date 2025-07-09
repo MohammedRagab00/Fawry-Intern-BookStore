@@ -11,5 +11,4 @@ public class DemoValidator implements Validator {
             throw new IllegalArgumentException("Book is just for show, not for sale");
         }
     }
-
 }

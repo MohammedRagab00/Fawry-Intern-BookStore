@@ -1,8 +1,8 @@
 package book;
 
-import java.time.LocalDate;
-
 import book.property.E;
+
+import java.time.LocalDate;
 
 public class EBook extends Book implements E {
 
@@ -18,4 +18,14 @@ public class EBook extends Book implements E {
         return fileType;
     }
 
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    @Override
+    public String toString() {
+        return "EBook{" +
+                "fileType='" + fileType + '\'' +
+                '}';
+    }
 }

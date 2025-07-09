@@ -1,15 +1,24 @@
 package inventory;
 
-import java.awt.print.Book;
+import book.Book;
+
 import java.util.HashSet;
 import java.util.Set;
 
 public class Inventory {
 
-    Set<Book> books;
+    private static Inventory Instance;
+    private Set<Book> books;
 
-    public Inventory() {
+    private Inventory() {
         books = new HashSet<>();
+    }
+
+    public static Inventory getInstance() {
+        if (Instance == null) {
+            Instance = new Inventory();
+        }
+        return Instance;
     }
 
     public Set<Book> getBooks() {
